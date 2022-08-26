@@ -1,11 +1,9 @@
 import React from "react";
 
 import Box from "@mui/material/Box";
-import Fab from "@mui/material/Fab";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 
-import EditIcon from "@mui/icons-material/Edit";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -26,9 +24,6 @@ export default function SimpleBottomNavigation() {
         <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
         <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
       </BottomNavigation>
-      <Fab color="secondary" aria-label="edit" size="small">
-        <EditIcon />
-      </Fab>
     </Box>
   );
 }

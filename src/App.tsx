@@ -14,7 +14,7 @@ export const App: React.FC = () => {
   const [isFollowButtonToggled, setIsFollowButtonToggled] = useState<boolean>(false);
 
   const { addFeed, setFollow } = useTwitter();
-  
+
   const handleMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
   }

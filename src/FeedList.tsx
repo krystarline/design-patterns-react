@@ -17,10 +17,6 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.primary,
 }));
 
-const message = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`;
-
 interface IProps {
   feeds: string[]
 }
@@ -28,7 +24,7 @@ interface IProps {
 export const FeedList: React.FC<IProps> = ({ feeds }) => {
   return (
     <Box sx={{ flexGrow: 1, overflow: "hidden", px: 3 }}>
-      {feeds.map((feed) => 
+      {feeds.map((feed) =>
         <StyledPaper
           sx={{
             my: 1,
