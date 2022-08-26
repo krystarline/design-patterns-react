@@ -9,10 +9,17 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-// import NotificationsIcon from '@mui/icons-material/Notifications'; // Subscriber 한정 noti
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Badge } from "@mui/material";
 
-export default function ComplexGrid() {
+interface IProps {
+  name: string
+  alarms: string[]
+  follow: boolean
+  setFollow: Function
+}
+
+export const Profile: React.FC<IProps> = ({ name, alarms, follow, setFollow }) => {
   return (
     <Paper
       sx={{
@@ -32,14 +39,22 @@ export default function ComplexGrid() {
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
               <Typography gutterBottom variant="subtitle1" component="div">
-                Krystarline
+                {name}
               </Typography>
               <FormGroup>
-                <FormControlLabel control={<Switch defaultChecked size="medium" />} label="Follow" />
+                <FormControlLabel control={
+                  <Switch
+                    size="medium"
+                    checked={follow}
+                    onChange={() =>  setFollow(name)}
+                  />
+                  } label="Follow"
+                />
               </FormGroup>
               <Fab color="default" aria-label="noti" size="small">
-                <NotificationsNoneIcon />
-                {/* <NotificationsIcon /> */}
+                <Badge badgeContent={alarms.length} color="error">
+                  <NotificationsIcon />
+                </Badge>
               </Fab>
             </Grid>
           </Grid>

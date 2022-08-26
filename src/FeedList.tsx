@@ -21,60 +21,32 @@ const message = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`;
 
-export default function AutoGridNoWrap() {
+interface IProps {
+  feeds: string[]
+}
+
+export const FeedList: React.FC<IProps> = ({ feeds }) => {
   return (
     <Box sx={{ flexGrow: 1, overflow: "hidden", px: 3 }}>
-      <StyledPaper
-        sx={{
-          my: 1,
-          mx: "auto",
-          p: 2,
-        }}
-      >
-        <Grid container wrap="nowrap" spacing={2}>
-          <Grid item>
-            <Avatar>VACO</Avatar>
+      {feeds.map((feed) => 
+        <StyledPaper
+          sx={{
+            my: 1,
+            mx: "auto",
+            p: 2,
+          }}
+        >
+          <Grid container wrap="nowrap" spacing={2}>
+            <Grid item>
+              <Avatar>VACO</Avatar>
+            </Grid>
+            <Grid item xs zeroMinWidth>
+              <Typography noWrap>{feed}</Typography>
+              <BottomNav />
+            </Grid>
           </Grid>
-          <Grid item xs zeroMinWidth>
-            <Typography noWrap>{message}</Typography>
-            <BottomNav />
-          </Grid>
-        </Grid>
-      </StyledPaper>
-      <StyledPaper
-        sx={{
-          my: 1,
-          mx: "auto",
-          p: 2,
-        }}
-      >
-        <Grid container wrap="nowrap" spacing={2}>
-          <Grid item>
-            <Avatar>VACO</Avatar>
-          </Grid>
-          <Grid item xs zeroMinWidth>
-            <Typography noWrap>{message}</Typography>
-            <BottomNav />
-          </Grid>
-        </Grid>
-      </StyledPaper>
-      <StyledPaper
-        sx={{
-          my: 1,
-          mx: "auto",
-          p: 2,
-        }}
-      >
-        <Grid container wrap="nowrap" spacing={2}>
-          <Grid item>
-            <Avatar>VACO</Avatar>
-          </Grid>
-          <Grid item xs zeroMinWidth>
-            <Typography>{message}</Typography>
-            <BottomNav />
-          </Grid>
-        </Grid>
-      </StyledPaper>
+        </StyledPaper>
+      )}
     </Box>
   );
 }
